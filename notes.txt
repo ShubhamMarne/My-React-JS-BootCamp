@@ -1,0 +1,8 @@
+Components are reusable building blocks. Seperate out the concerns
+
+**************************************************************
+React = HTML+ JS+ CSS
+
+***********************************************************
+
+JSX : Javascript XML
