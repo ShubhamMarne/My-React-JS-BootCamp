@@ -1,6 +1,6 @@
 import ExpenseItem from './components/ExpenseItem';
 
-function App() {
+const App = () =>  {
   const arr = [
     {date : new Date(), 
     insurance : 'first' ,
