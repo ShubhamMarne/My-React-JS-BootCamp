@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; 
 import './ExpenseItem.css';
+import NewItem from './NewItem.js';
 import Card from './Card'
 
 
@@ -28,12 +29,22 @@ const ExpenseItem = (props) =>
         
     }
 
+    // part of child-parent communication
+    const ondataHandler = (eventData) =>  {
+        const data = {
+            ...eventData,
+            id : Math.random.toString()
+        };
+        console.log("Data is " + data);
+    }
+
     return (
         <Card className="expense-item">
             <div className="expense-item__description   ">{props.date.toString()}</div>
             <div className="expense-item__price">{props.insurance}</div>
             <div>{props.amount}</div>
             <button onClick={clickHandler}>Click</button>
+            <NewItem ondataAccesser={ondataHandler}> </NewItem>
         </Card>
     )
 
