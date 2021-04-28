@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import ApplicationContext from './store/common-store';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
@@ -28,13 +29,16 @@ function App() {
   };
 
   return (
-    <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+    <ApplicationContext.Provider value={{
+      isValid : 'checking'
+  }}>
+      <MainHeader isAuthenticated={true} onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
-    </React.Fragment>
+    </ApplicationContext.Provider>
+
   );
 }
 
